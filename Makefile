@@ -10,7 +10,7 @@ PGFILEDESC = "sr_plan - save and read plan"
 REGRESS = sr_plan
 
 ifdef USE_PGXS
-PG_CONFIG = pg_config
+PG_CONFIG = /usr/local/pgsql/bin/pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 else

@@ -12,6 +12,8 @@
 #include "catalog/index.h"
 #endif
 
+#define PG_GETARG_JSONB PG_GETARG_JSONB_P
+
 PG_MODULE_MAGIC;
 
 void	_PG_init(void);

@@ -125,11 +125,11 @@ PlannedStmt *sr_planner(Query *parse,
 	Relation query_index_rel;
 	HeapTuple tuple;
 	/* For make new tuple */
-	Datum		values[6];
-	static bool nulls[6] = {false, false, false, false, false, false};
+	Datum		values[7];
+	static bool nulls[7] = {false, false, false, false, false, false, false};
 	/* For search tuple */
-	Datum		search_values[6];
-	static bool search_nulls[6] = {false, false, false, false, false, false};
+	Datum		search_values[7];
+	static bool search_nulls[7] = {false, false, false, false, false, false, false};
 	bool find_ok = false;
 	LOCKMODE heap_lock =  AccessShareLock; 
 	Oid query_index_rel_oid;
@@ -254,7 +254,7 @@ PlannedStmt *sr_planner(Query *parse,
 		Datum plan_hash;
 		
 		pl_stmt = standard_planner(parse, cursorOptions, boundParams);
-		out_jsonb2 = node_tree_to_jsonb(parse, sr_plan_fake_func, false);
+		out_jsonb2 = node_tree_to_jsonb(pl_stmt, sr_plan_fake_func, false);
 /*		elog(WARNING, 
 		     "write queryPlan=%s", 
 		     JsonbToCStringIdent(out_jsonb) );*/
@@ -296,6 +296,7 @@ PlannedStmt *sr_planner(Query *parse,
 			values[3] = PointerGetDatum(out_jsonb2);
 			values[4] = BoolGetDatum(false);
 			values[5] = BoolGetDatum(true);
+			values[6] = PointerGetDatum(out_jsonb);
 			tuple = heap_form_tuple(sr_plans_heap->rd_att, values, nulls);
 			simple_heap_insert(sr_plans_heap, tuple);
 			index_insert(query_index_rel,
@@ -468,9 +469,9 @@ sr_plan_invalid_table(PG_FUNCTION_ARGS)
 	ExprContext econtext;
 	TupleTableSlot *slot = NULL;
 	Relation sr_plans_heap;
-	Datum		search_values[6];
-	static bool search_nulls[6];
-	static bool search_replaces[6];
+	Datum		search_values[7];
+	static bool search_nulls[7];
+	static bool search_replaces[7];
 	Oid sr_plans_oid;
 	HeapScanDesc heapScan;
 	Jsonb *jsonb;

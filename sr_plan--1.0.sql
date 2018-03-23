@@ -7,9 +7,10 @@ CREATE TABLE sr_plans (
 	query_hash	int NOT NULL,
 	plan_hash	int NOT NULL,
 	query		varchar NOT NULL,
-	plan		jsonb NOT NULL,
+	execution_plan	jsonb NOT NULL,
 	enable		boolean NOT NULL,
-	valid		boolean NOT NULL
+	valid		boolean NOT NULL,
+	query_plan	jsonb NOT NULL
 );
 
 CREATE INDEX sr_plans_query_hash_idx ON sr_plans (query_hash);

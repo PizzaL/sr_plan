@@ -174,6 +174,7 @@ PlannedStmt *sr_planner(Query *parse,
 	
 	
 	out_jsonb = node_tree_to_jsonb(parse, sr_plan_fake_func, true);
+	/*elog(WARNING, "queryPlanBeforeHash=%s", out_jsonb);*/
 	query_hash = DatumGetInt32(DirectFunctionCall1(jsonb_hash, PointerGetDatum(out_jsonb)));
 	
 	query_params = NULL;
@@ -253,7 +254,10 @@ PlannedStmt *sr_planner(Query *parse,
 		Datum plan_hash;
 		
 		pl_stmt = standard_planner(parse, cursorOptions, boundParams);
-		out_jsonb2 = node_tree_to_jsonb(pl_stmt, 0, false);
+		out_jsonb2 = node_tree_to_jsonb(parse, sr_plan_fake_func, false);
+/*		elog(WARNING, 
+		     "write queryPlan=%s", 
+		     JsonbToCStringIdent(out_jsonb) );*/
 		plan_hash = DirectFunctionCall1(jsonb_hash, PointerGetDatum(out_jsonb2));
 
 		query_index_scan = index_beginscan(sr_plans_heap,

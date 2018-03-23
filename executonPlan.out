@@ -1,0 +1,184 @@
+2018-03-23 13:45:20.511 CST [30164] DETAIL:     {PLANNEDSTMT 
+	   :commandType 1 
+	   :queryId 0 
+	   :hasReturning false 
+	   :hasModifyingCTE false 
+	   :canSetTag true 
+	   :transientPlan false 
+	   :dependsOnRole false 
+	   :parallelModeNeeded false 
+	   :planTree 
+	      {SEQSCAN 
+	      :startup_cost 0.00 
+	      :total_cost 18.00 
+	      :plan_rows 800 
+	      :plan_width 74 
+	      :parallel_aware false 
+	      :parallel_safe true 
+	      :plan_node_id 0 
+	      :targetlist (
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 1 
+	            :vartype 23 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 1 
+	            :location 7
+	            }
+	         :resno 1 
+	         :resname query_hash 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 1 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 2 
+	            :vartype 23 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 2 
+	            :location 7
+	            }
+	         :resno 2 
+	         :resname plan_hash 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 2 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 3 
+	            :vartype 1043 
+	            :vartypmod -1 
+	            :varcollid 100 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 3 
+	            :location 7
+	            }
+	         :resno 3 
+	         :resname query 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 3 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 4 
+	            :vartype 3802 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 4 
+	            :location 7
+	            }
+	         :resno 4 
+	         :resname plan 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 4 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 5 
+	            :vartype 16 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 5 
+	            :location 7
+	            }
+	         :resno 5 
+	         :resname enable 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 5 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno 1 
+	            :varattno 6 
+	            :vartype 16 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varlevelsup 0 
+	            :varnoold 1 
+	            :varoattno 6 
+	            :location 7
+	            }
+	         :resno 6 
+	         :resname valid 
+	         :ressortgroupref 0 
+	         :resorigtbl 16386 
+	         :resorigcol 6 
+	         :resjunk false
+	         }
+	      )
+	      :qual <> 
+	      :lefttree <> 
+	      :righttree <> 
+	      :initPlan <> 
+	      :extParam (b)
+	      :allParam (b)
+	      :scanrelid 1
+	      }
+	   :rtable (
+	      {RTE 
+	      :alias <> 
+	      :eref 
+	         {ALIAS 
+	         :aliasname sr_plans 
+	         :colnames ("query_hash" "plan_hash" "query" "plan" "enable" "valid")
+	         }
+	      :rtekind 0 
+	      :relid 16386 
+	      :relkind r 
+	      :tablesample <> 
+	      :lateral false 
+	      :inh false 
+	      :inFromCl true 
+	      :requiredPerms 2 
+	      :checkAsUser 0 
+	      :selectedCols (b 9 10 11 12 13 14)
+	      :insertedCols (b)
+	      :updatedCols (b)
+	      :securityQuals <>
+	      }
+	   )
+	   :resultRelations <> 
+	   :nonleafResultRelations <> 
+	   :rootResultRelations <> 
+	   :subplans <> 
+	   :rewindPlanIDs (b)
+	   :rowMarks <> 
+	   :relationOids (o 16386)
+	   :invalItems <> 
+	   :paramExecTypes <> 
+	   :utilityStmt <> 
+	   :stmt_location 0 
+	   :stmt_len 22
+	   }
